@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>Azure Plat Alan's Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/mainpage.css') }}">
+</head>
+
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {% if message %}
+                <div class="alert alert-warning" role="alert">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <div class = "menu">
+        <button onclick="window.location.href='/'">Home</button>
+        <button onclick="window.location.href='/index'">Login</button>
+        <button onclick="window.location.href='/mainpage'">Main Page</button>
+    </div>
+    <div class="container">
+        <div class="form-box">
+            <h2>Welcome!</h2>
+            <h1 style="color:#fff">
+                {{userName}}
+            </h1>
+            <form action="{{url_for('mainpage')}}" method="post" enctype="multipart/form-data">
+                <div class="fileupload" style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;">
+                    <button id="Logout" type="submit" name="action" value="Logout" style="width: 150px;">Logout</button>
+                    {% if imgurl %}
+                        <img src="{{imgurl}}" style="width: 200px; height: auto; padding-top: 50px;">
+                    {% endif %}
+                    <label for="file" style="font-weight: bold; padding-top: 50px;">Upload your Profile Photo</label>
+                    <input type="file" name="file" id="file" style="padding-left: 20%;padding-top: 20px;font-weight: bold;" />
+                    <br />
+                    <button id="Upload" type="submit" name="action" value="Upload" style="width:150px">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

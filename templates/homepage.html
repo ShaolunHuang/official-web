@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>Azure Plat Alan's Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/homepage.css') }}">
+</head>
+
+
+
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {% if message %}
+                <div class="alert alert-warning" role="alert">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <div class = "menu">
+        <button onclick="window.location.href='/'">Home</button>
+        <button onclick="window.location.href='/index'">Login</button>
+    </div>
+    <div class="container">
+        <h1>Welcome! to AlanHuang's Web!</h1>
+        <p>Welcome to my Web! This website is still under development. Try out Login page to preserve your user info and change your profile photo.</p>
+    </div>
+</body>

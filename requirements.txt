@@ -1,0 +1,8 @@
+Flask==2.0.2
+pyodbc
+applicationinsights
+opencensus-ext-azure
+opencensus-ext-flask
+azure-storage-blob
+azure-servicebus
+redis
